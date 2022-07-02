@@ -3,3 +3,40 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+.main-page {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    main.main_main-page {
+        position: relative;
+        width: 100%;
+        min-height: calc(100vh - 100px - 200px);
+        height: 100%;
+        .container {
+            max-width: 1400px;
+            width: 100%;
+            margin: 0 auto;
+
+            header.main-page-header {
+                margin-top: 82px;
+                a.lorem-ipsum-routes {
+                    font-family: "Manrope";
+                    font-style: normal;
+                    font-weight: 700;
+                    font-size: 36px;
+                    letter-spacing: 0.07em;
+                    text-transform: uppercase;
+                    color: #141414;
+                    text-decoration: none;
+                }
+                a.lorem-ipsum-routes:first-child {
+                    margin-right: 55px;
+                }
+                a.lorem-ipsum-routes.active {
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+}
