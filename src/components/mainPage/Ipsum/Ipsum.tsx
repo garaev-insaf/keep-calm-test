@@ -1,4 +1,5 @@
 import * as React from "react";
+import PhotosCarousel from "./PhotosCarousel/PhotosCarousel";
 import './styles/Ipsum.scss'
 
 const Ipsum = () => {
@@ -10,6 +11,7 @@ const Ipsum = () => {
                         Lorem ipsum dolor <i>sit</i> amet
                     </h2>
                 </header>
+                <PhotosCarousel />
             </section>
         </>
     );

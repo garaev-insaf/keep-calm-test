@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Link, Route, Routes, useLocation  } from "react-router-dom";
+import { Link, Route, Routes, useLocation } from "react-router-dom";
 import Footer from "../universal/Footer/Footer";
 import Header from "../universal/Header/Header";
 import Ipsum from "./Ipsum/Ipsum";
@@ -17,16 +17,16 @@ const MainPage = () => {
             <div className="main-page">
                 <Header />
                 <main className="main_main-page">
-                    <div className="container">
                         <header className="main-page-header">
-                            <Link className={`lorem-ipsum-routes ${location.pathname === '/' ? 'active' : 'passive'}`} to="/">Lorem</Link>
-                            <Link className={`lorem-ipsum-routes ${location.pathname === '/ipsum' ? 'active' : 'passive'}`} to="/ipsum">Ipsum</Link>
+                            <div className="container">
+                                <Link className={`lorem-ipsum-routes ${location.pathname === '/' ? 'active' : 'passive'}`} to="/">Lorem</Link>
+                                <Link className={`lorem-ipsum-routes ${location.pathname === '/ipsum' ? 'active' : 'passive'}`} to="/ipsum">Ipsum</Link>
+                            </div>
                         </header>
-                        <Routes>
-                            <Route path='/' element={<Lorem />} />
-                            <Route path='/ipsum' element={<Ipsum />} />
-                        </Routes>
-                    </div>
+                    <Routes>
+                        <Route path='/' element={<Lorem />} />
+                        <Route path='/ipsum' element={<Ipsum />} />
+                    </Routes>
                 </main>
                 <Footer />
             </div>

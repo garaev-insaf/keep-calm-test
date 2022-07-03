@@ -1,43 +1,47 @@
 section.lorem-section {
     margin-bottom: 222px;
-    .block-wrapper {
-        display: flex;
-        justify-content: space-between;
-        .col {
-            max-width: 600px;
-            width: 100%;
-        }
-        .col.description {
-            header {
-                h3 {
-                    font-family: "Orchidea Pro";
-                    font-style: normal;
-                    font-weight: 500;
-                    font-size: 48px;
-                    color: #141414;
+    .container {
+        max-width: 1400px;
+        width: 100%;
+        margin: 0 auto;
+        .block-wrapper {
+            display: flex;
+            justify-content: space-between;
+            .col {
+                max-width: 600px;
+                width: 100%;
+            }
+            .col.description {
+                header {
+                    h3 {
+                        font-family: "Orchidea Pro";
+                        font-style: normal;
+                        font-weight: 500;
+                        font-size: 48px;
+                        color: #141414;
+                    }
+                }
+                .description-text-wrapper {
+                    margin-top: 25px;
+                    p.description-text {
+                        font-family: "Manrope";
+                        font-style: normal;
+                        font-weight: 500;
+                        font-size: 18px;
+                        color: #141414;
+                    }
+                    p:nth-child(2) {
+                        margin-top: 10px;
+                    }
                 }
             }
-            .description-text-wrapper {
-                margin-top: 25px;
-                p.description-text {
-                    font-family: "Manrope";
-                    font-style: normal;
-                    font-weight: 500;
-                    font-size: 18px;
-                    color: #141414;
-                    
-                }
-                p:nth-child(2) {
-                    margin-top: 10px;
-                }
-            }
         }
-    }
-    .lorem-first-block-wrapper {
-        margin-top: 70px;
-    }
-    .lorem-second-block-wrapper {
-        margin-top: 87px;
-        align-items: center;
+        .lorem-first-block-wrapper {
+            margin-top: 70px;
+        }
+        .lorem-second-block-wrapper {
+            margin-top: 87px;
+            align-items: center;
+        }
     }
 }

@@ -1,0 +1,56 @@
+.photos-carousel {
+    margin-top: 70px;
+    width: 100%;
+    position: relative;
+    .layout-wrapper::before {
+        content: "";
+        position: absolute;
+        height: 550px;
+        width: 380px;
+        background: linear-gradient(270deg, #ffffff 0%, rgba(255, 255, 255, 0.05) 100%);
+        transform: matrix(-1, 0, 0, 1, 0, 0);
+    }
+    .layout-wrapper::after {
+        content: "";
+        position: absolute;
+        right: 0;
+        top: 0;
+        height: 550px;
+        width: 380px;
+        background: linear-gradient(270deg, #ffffff 0%, rgba(255, 255, 255, 0.05) 100%);
+    }
+    .photos-carousel-wrapper {
+        z-index: 1;
+        overflow: hidden;
+        width: 9999px;
+        height: 550px;
+        img:not(:last-child) {
+            margin-right: 40px;
+            width: 360px;
+            height: 550px;
+        }
+    }
+    .buttons-wrapper {
+        margin-top: 65px;
+        margin-bottom: 113px;
+        position: relative;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        button {
+            cursor: pointer;
+            border: none;
+            outline: none;
+            background: transparent;
+            width: 32px;
+            height: 32px;
+            img {
+                width: 12px;
+            }
+        }
+        button.button_prew-slide {
+            margin: 0 142px 0 40px; // 40px - это отступ от левого слайда
+        }
+    }
+}

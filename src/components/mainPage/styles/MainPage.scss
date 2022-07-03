@@ -15,12 +15,11 @@
         height: 100%;
         padding-top: 82px;
         overflow-x: hidden;
-        .container {
-            max-width: 1400px;
-            width: 100%;
-            margin: 0 auto;
-
-            header.main-page-header {
+        header.main-page-header {
+            .container {
+                max-width: 1400px;
+                width: 100%;
+                margin: 0 auto;
                 a.lorem-ipsum-routes {
                     font-family: "Manrope";
                     font-style: normal;
@@ -38,16 +37,20 @@
                     text-decoration: underline;
                 }
             }
-            section {
-                margin-top: 110px;
-                header {
-                    h2 {
-                        font-family: "Orchidea Pro";
-                        font-style: normal;
-                        font-weight: 500;
-                        font-size: 64px;
-                        text-transform: uppercase;
-                        color: #141414;
+        }
+        section {
+            margin-top: 110px;
+            header {
+                h2 {
+                    font-family: "Orchidea Pro";
+                    font-style: normal;
+                    font-weight: 500;
+                    font-size: 64px;
+                    text-transform: uppercase;
+                    color: #141414;
+                    i {
+                        text-transform: lowercase;
+                        font-style: italic;
                     }
                 }
             }
