@@ -9,10 +9,10 @@ interface IChangeSlidesProps {
 
 export const changeSlides = <IChangeSlidesProps>(val, marginLeftOfSliderState, sliderTransitionDurationTime, imagesState, setMarginLeftOfSliderState) => {
     // делаем двойную проверку: на достижение конечной точки и присутствие транзишна, чтобы пользователь не имел возможности прокликать, пока идёт асинхронное событие
-    if (val == 'left' && marginLeftOfSliderState !== 0 && sliderTransitionDurationTime !== 0) {
+    if (val == 'left' && marginLeftOfSliderState !== -2 && sliderTransitionDurationTime !== 0) {
         setMarginLeftOfSliderState(marginLeftOfSliderState + 1);
     }
-    else if (val === 'right' && marginLeftOfSliderState !== -(imagesState.length - 5) && sliderTransitionDurationTime !== 0) {
+    else if (val === 'right' && marginLeftOfSliderState !== -(imagesState.length - 3) && sliderTransitionDurationTime !== 0) {
         setMarginLeftOfSliderState(marginLeftOfSliderState - 1);
     }
 }

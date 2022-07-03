@@ -1,6 +1,6 @@
 export const TRANSITION_DURATION_TIME = 500; // время анимации, мс
 export const MARGIN_LEFT_STEP = 400; // шаг слайда, px
-
+export const MARGIN_LEFT_STEP_MOBILE = 290
 export type PhotosType = {
     src: string,
     descr: string,

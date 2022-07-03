@@ -1,17 +1,19 @@
 import * as React from "react";
 import { useState, useEffect, useContext } from "react";
 import { changeSlides, popAndUnshiftActionWithArray } from "./scripts";
-import { TRANSITION_DURATION_TIME, MARGIN_LEFT_STEP, photosList, PhotosType } from './static';
+import { TRANSITION_DURATION_TIME, MARGIN_LEFT_STEP, photosList, PhotosType, MARGIN_LEFT_STEP_MOBILE } from './static';
 import { ModalContext } from '../../../modal/ModalContext/ModalContext';
 import './styles/PhotosCarousel.scss'
 
 const PhotosCarousel = () => {
     const { handleModal } = useContext(ModalContext)
     // Задача реализовать бесконечный слайдер, не зависящий от кол-ва слайдов (если мы добавим или убавим их кол-во слайдер продолжит корректно работать) ♥
-    const [marginLeftOfSliderState, setMarginLeftOfSliderState] = useState(-1);
+    const [marginLeftOfSliderState, setMarginLeftOfSliderState] = useState(window.innerWidth > 1200 ? -3 : -3);
     const [imagesState, setImagesState] = useState<PhotosType[]>(() => popAndUnshiftActionWithArray(photosList)); // берём стейт с добавленными по обе стороны слайдами
     const [sliderTransitionDurationTime, setSliderTransitionDurationTime] = useState(TRANSITION_DURATION_TIME);
+    const [mobileSlideFlag, setMobileFlagState] = useState(() => true)
     const handleSlideChangeClick = (val: string) => {
+        setMobileFlagState(() => false);
         changeSlides(val, marginLeftOfSliderState, sliderTransitionDurationTime, imagesState, setMarginLeftOfSliderState);
     }
 
@@ -19,7 +21,7 @@ const PhotosCarousel = () => {
         console.log(marginLeftOfSliderState);
         // Если мы достигли конечного слайда, обнуляем transition duration
         // делается это с той целью, чтобы пользователь не видел подмену фотографий
-        if (marginLeftOfSliderState === 0 || marginLeftOfSliderState === -(imagesState.length - 5)) {
+        if (marginLeftOfSliderState === -2 || marginLeftOfSliderState === -(imagesState.length - 3)) {
             setTimeout(() =>
                 setSliderTransitionDurationTime(0), TRANSITION_DURATION_TIME)
 
@@ -27,12 +29,12 @@ const PhotosCarousel = () => {
     }, [marginLeftOfSliderState]);
 
     useEffect(() => {
-        if (marginLeftOfSliderState === 0) {
-            setMarginLeftOfSliderState(-(imagesState.length - 6)); // вычитаем 6, т.к. добавили в начало и в конец по 3 элемента (в данном случае мы двигаемся вперёд)
+        if (marginLeftOfSliderState === -2) {
+            setMarginLeftOfSliderState(-(imagesState.length - 4)); // вычитаем 6, т.к. добавили в начало и в конец по 3 элемента (в данном случае мы двигаемся вперёд)
             setTimeout(() => setSliderTransitionDurationTime(TRANSITION_DURATION_TIME), 50)
         }
-        else if (marginLeftOfSliderState === -(imagesState.length - 5)) { // вычитаем 5, т.к. всего 5 элементов (в данном случае мы двигаемся назад)
-            setMarginLeftOfSliderState(-1);
+        else if (marginLeftOfSliderState === -(imagesState.length - 3)) { // вычитаем 5, т.к. всего 5 элементов (в данном случае мы двигаемся назад)
+            setMarginLeftOfSliderState(-3);
             setTimeout(() => setSliderTransitionDurationTime(TRANSITION_DURATION_TIME), 50)
         }
         else if (sliderTransitionDurationTime === 0) {
@@ -40,20 +42,19 @@ const PhotosCarousel = () => {
         }
 
     }, [sliderTransitionDurationTime])
-
     return (
         <>
             <div className="photos-carousel" id="photos-carousel">
                 <div className="layout-wrapper">
                     <div
-                        style={{ marginLeft: `${marginLeftOfSliderState * MARGIN_LEFT_STEP}px`, transitionDuration: `${sliderTransitionDurationTime}ms` }}
+                        style={{ marginLeft: `${(window.innerWidth > 576 ? marginLeftOfSliderState *  MARGIN_LEFT_STEP + (window.innerWidth - MARGIN_LEFT_STEP) / 2 + 10 : marginLeftOfSliderState *  MARGIN_LEFT_STEP_MOBILE + (window.innerWidth - MARGIN_LEFT_STEP_MOBILE - 10) / 2)}px`, transitionDuration: `${sliderTransitionDurationTime}ms` }}
                         className="photos-carousel-wrapper">
                         {
                             imagesState.length > 0 ?
                                 imagesState.map((photo, index) =>
                                     photo.src.length > 0 ?
-                                        <div className="image-wrapper" onClick={() => handleModal(<PhotosCarousel />)}>
-                                            <img src={photo.src} alt="photo" key={index} />
+                                        <div className="image-wrapper" onClick={() => handleModal(<PhotosCarousel />)} key={index}>
+                                            <img src={photo.src} alt="photo"  />
                                             {
                                                 photo.descr.length > 0 && photo.descriptionPos >= 1 && photo.descriptionPos <= 4 ?
                                                     <div className={`photo-description ${photo.descriptionPos === 1 ? 'top' : photo.descriptionPos === 2 ? 'right' : photo.descriptionPos === 3 ? 'bottom' : 'left'}`}><p>{photo.descr}</p></div>

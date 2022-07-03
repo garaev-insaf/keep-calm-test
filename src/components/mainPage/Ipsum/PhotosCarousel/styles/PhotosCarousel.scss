@@ -2,6 +2,9 @@
     margin-top: 70px;
     width: 100%;
     position: relative;
+    .layout-wrapper {
+        width: 100%;
+    }
     .layout-wrapper::before {
         content: "";
         z-index: 10;
@@ -24,7 +27,7 @@
     .photos-carousel-wrapper {
         z-index: 1;
         overflow: hidden;
-        width: 9999px;
+        width: 10000px;
         height: 550px;
         display: flex;
         .image-wrapper {
@@ -98,7 +101,181 @@
             }
         }
         button.button_prew-slide {
-            margin: 0 142px 0 40px; // 40px - это отступ от левого слайда
+            margin: 0 142px 0 0;
+        }
+    }
+}
+@media (min-width: 576px) and (max-width: 1200px) {
+    .photos-carousel {
+        margin-top: 50px;
+        position: relative;
+        .layout-wrapper::before {
+            content: "";
+            z-index: 10;
+            position: absolute;
+            height: 550px;
+            width: 150px;
+            background: linear-gradient(270deg, #ffffff 0%, rgba(255, 255, 255, 0.05) 100%);
+            transform: matrix(-1, 0, 0, 1, 0, 0);
+        }
+        .layout-wrapper::after {
+            z-index: 10;
+            content: "";
+            position: absolute;
+            right: 0;
+            top: 0;
+            height: 550px;
+            width: 150px;
+            background: linear-gradient(270deg, #ffffff 0%, rgba(255, 255, 255, 0.05) 100%);
+        }
+        .photos-carousel-wrapper {
+            z-index: 1;
+            overflow: hidden;
+            width: 10000px;
+            height: 550px;
+            display: flex;
+            .image-wrapper {
+                position: relative;
+                width: 360px;
+                height: 550px;
+                img {
+                    width: 360px;
+                    height: 550px;
+                }
+                .photo-description {
+                    background: rgba(20, 20, 20, 0.5);
+                    z-index: 2;
+                    position: absolute;
+                    overflow: hidden;
+                    p {
+                        position: relative;
+                        z-index: 11;
+                        font-family: "Orchidea Pro";
+                        font-style: normal;
+                        font-weight: 500;
+                        font-size: 24px;
+                        color: #ffffff;
+                    }
+                }
+                .photo-description.bottom {
+                    bottom: 0;
+                    width: 100%;
+                    height: 145px;
+                    display: flex;
+                    align-items: center;
+                    padding: 0 30px 0 30px;
+                    p {
+                        text-align: left;
+                    }
+                }
+                .photo-description.right {
+                    top: 0;
+                    right: 0;
+                    width: 50%;
+                    height: 100%;
+                    display: flex;
+                    align-items: flex-start;
+                    padding: 42px 10px 0 30px;
+                    p {
+                        text-align: center;
+                    }
+                }
+            }
+            .image-wrapper:not(:last-child) {
+                margin-right: 40px;
+            }
+        }
+        .buttons-wrapper {
+            margin-top: 65px;
+            margin-bottom: 113px;
+            position: relative;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            button {
+                cursor: pointer;
+                border: none;
+                outline: none;
+                background: transparent;
+                width: 32px;
+                height: 32px;
+                img {
+                    width: 12px;
+                }
+            }
+            button.button_prew-slide {
+                margin: 0 142px 0 0;
+            }
+        }
+    }
+}
+@media (max-width: 576px) {
+    .photos-carousel {
+        width: 100%;
+        margin-top: 30px;
+        position: relative;
+        .layout-wrapper::before {
+            height: 400px;
+            width: 110px;
+            left: -80px;
+        }
+        .layout-wrapper::after {
+            right: -80px;
+            height: 400px;
+            width: 110px;
+        }
+        .photos-carousel-wrapper {
+            height: 400px;
+            .image-wrapper {
+                width: 260px;
+                height: 400px;
+                img {
+                    width: 260px;
+                    height: 400px;
+                }
+                .photo-description {
+                    p {
+                        font-size: 14px;
+                    }
+                }
+                .photo-description.bottom {
+                    height: 100px;
+                }
+                .photo-description.right {
+                    width: 50%;
+                }
+            }
+            .image-wrapper:not(:last-child) {
+                margin-right: 30px;
+            }
+        }
+        .buttons-wrapper {
+            margin: 0;
+            position: absolute;
+            width: 100%;
+            top: 0;
+            button {
+                z-index: 111;
+                position: absolute;
+                top: 0px;
+                border: none;
+                outline: none;
+                background: transparent;
+                width: 50%;
+                height: 400px;
+                img {
+                    width: 12px;
+                }
+            }
+            button.button_prew-slide {
+                left: -50px;
+                margin: 0; // 40px - это отступ от левого слайда
+            }
+            button.button_next-slide {
+                right: -50px;
+                margin: 0; // 40px - это отступ от левого слайда
+            }
         }
     }
 }

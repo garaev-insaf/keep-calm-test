@@ -59,17 +59,38 @@
     }
 }
 
+@media (min-width: 1200px) and (max-width: 1400px) {
+    .main-page {
+        main.main_main-page {
+            header.main-page-header {
+                .container {
+                    padding: 0 40px 0;
+                }
+            }
+        }
+    }
+}
+
 @media (min-width: 576px) and (max-width: 1200px) {
     .main-page {
         position: relative;
         width: 100%;
         height: 100%;
         main.main_main-page {
+            header.main-page-header {
+                .container {
+                    padding: 0 40px 0;
+                }
+                a.lorem-ipsum-routes {
+                    font-size: 28px !important;
+                }
+            }
             section {
                 margin-top: 50px;
                 header {
+                    padding: 0 40px 0;
                     h2 {
-                        font-size: 48px;
+                        font-size: 40px;
                     }
                 }
             }
@@ -83,8 +104,6 @@
         height: 100%;
         main.main_main-page {
             width: 100%;
-            min-height: 100%;
-            height: 100%;
             padding: 30px 20px 80px;
             overflow-x: hidden;
             header.main-page-header {
