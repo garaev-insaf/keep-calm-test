@@ -1,10 +1,12 @@
 import * as React from "react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { changeSlides, popAndUnshiftActionWithArray } from "./scripts";
 import { TRANSITION_DURATION_TIME, MARGIN_LEFT_STEP, photosList, PhotosType } from './static';
+import { ModalContext } from '../../../modal/ModalContext/ModalContext';
 import './styles/PhotosCarousel.scss'
 
 const PhotosCarousel = () => {
+    const { handleModal } = useContext(ModalContext)
     // Задача реализовать бесконечный слайдер, не зависящий от кол-ва слайдов (если мы добавим или убавим их кол-во слайдер продолжит корректно работать) ♥
     const [marginLeftOfSliderState, setMarginLeftOfSliderState] = useState(-1);
     const [imagesState, setImagesState] = useState<PhotosType[]>(() => popAndUnshiftActionWithArray(photosList)); // берём стейт с добавленными по обе стороны слайдами
@@ -50,7 +52,7 @@ const PhotosCarousel = () => {
                             imagesState.length > 0 ?
                                 imagesState.map((photo, index) =>
                                     photo.src.length > 0 ?
-                                        <div className="image-wrapper">
+                                        <div className="image-wrapper" onClick={() => handleModal(<PhotosCarousel />)}>
                                             <img src={photo.src} alt="photo" key={index} />
                                             {
                                                 photo.descr.length > 0 && photo.descriptionPos >= 1 && photo.descriptionPos <= 4 ?

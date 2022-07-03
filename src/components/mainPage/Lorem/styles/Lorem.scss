@@ -45,3 +45,90 @@ section.lorem-section {
         }
     }
 }
+@media (min-width: 576px) and (max-width: 1200px) {
+    section.lorem-section {
+        margin-bottom: 60px;
+        .container {
+            .block-wrapper {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-between;
+
+                .lorem-first-block-wrapper__photo {
+                    margin-top: 60px;
+                }
+                .col.description {
+                    header {
+                        h3 {
+                            font-size: 40px;
+                        }
+                    }
+                    .description-text-wrapper {
+                        margin-top: 25px;
+                        p.description-text {
+                            font-size: 16px;
+                        }
+                        p:nth-child(2) {
+                            margin-top: 10px;
+                        }
+                    }
+                }
+            }
+            .lorem-second-block-wrapper {
+                align-items: flex-end;
+                flex-direction: column-reverse;
+            }
+        }
+    }
+}
+
+@media (max-width: 576px) {
+    section.lorem-section {
+        margin-bottom: 0px;
+        .container {
+            .block-wrapper {
+                flex-wrap: wrap;
+                align-items: center;
+                .lorem-first-block-wrapper__photo {
+                    margin-top: 60px;
+                }
+                .col {
+                    position: relative;
+                    max-width: 600px;
+                    width: 100%;
+                    img {
+                        position: relative;
+                        @media (max-width: 425px) {
+                            left: -90px;
+                        }
+                        height: 360px;
+                    }
+                }
+                .col.description {
+                    header {
+                        h3 {
+                            font-size: 24px;
+                        }
+                    }
+                    .description-text-wrapper {
+                        margin-top: 20px;
+                        p.description-text {
+                            font-size: 14px;
+                        }
+                        p:nth-child(2) {
+                            margin-top: 10px;
+                        }
+                    }
+                }
+            }
+            .lorem-first-block-wrapper {
+                margin-top: 30px;
+            }
+            .lorem-second-block-wrapper {
+                margin-top: 60px;
+                align-items: center;
+                flex-direction: column-reverse;
+            }
+        }
+    }
+}

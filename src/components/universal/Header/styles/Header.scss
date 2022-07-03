@@ -7,17 +7,41 @@ header.header_lorem-ipsum {
     align-items: center;
     justify-content: center;
     .container {
+        padding: 0 20px;
         max-width: 1400px;
         width: 100%;
         display: flex;
         align-items: center;
         justify-content: space-between;
+        img.phone {
+            display: none;
+        }
+        img.logo {
+            display: block;
+        }
         span {
             font-family: "Manrope";
             font-style: normal;
             font-weight: 500;
             font-size: 24px;
             color: #ffffff;
+        }
+    }
+}
+
+@media (max-width: 425px) {
+    header.header_lorem-ipsum {
+        height: 60px;
+        .container {
+            img.logo {
+                width: 118px;
+            }
+            img.phone {
+                display: block;
+            }
+            span {
+                display: none;
+            }
         }
     }
 }

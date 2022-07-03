@@ -34,7 +34,8 @@
                     margin-right: 55px;
                 }
                 a.lorem-ipsum-routes.active {
-                    text-decoration: underline;
+                    padding-bottom: 2px;
+                    border-bottom: 5px solid #141414;
                 }
             }
         }
@@ -51,6 +52,61 @@
                     i {
                         text-transform: lowercase;
                         font-style: italic;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: 576px) and (max-width: 1200px) {
+    .main-page {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        main.main_main-page {
+            section {
+                margin-top: 50px;
+                header {
+                    h2 {
+                        font-size: 48px;
+                    }
+                }
+            }
+        }
+    }
+}
+@media (max-width: 576px) {
+    .main-page {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        main.main_main-page {
+            width: 100%;
+            min-height: 100%;
+            height: 100%;
+            padding: 30px 20px 80px;
+            overflow-x: hidden;
+            header.main-page-header {
+                .container {
+                    a.lorem-ipsum-routes {
+                        font-size: 18px;
+                    }
+                    a.lorem-ipsum-routes:first-child {
+                        margin-right: 23px;
+                    }
+                    a.lorem-ipsum-routes.active {
+                        text-decoration: none;
+                        padding-bottom: 1px;
+                        border-bottom: 3px solid #141414;
+                    }
+                }
+            }
+            section {
+                margin-top: 50px;
+                header {
+                    h2 {
+                        font-size: 36px;
                     }
                 }
             }
