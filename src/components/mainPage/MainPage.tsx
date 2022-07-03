@@ -4,6 +4,7 @@ import Footer from "../universal/Footer/Footer";
 import Header from "../universal/Header/Header";
 import Ipsum from "./Ipsum/Ipsum";
 import Lorem from "./Lorem/Lorem";
+import "../../../public/fonts.css"
 import './styles/MainPage.scss'
 
 const MainPage = () => {

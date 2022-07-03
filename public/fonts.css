@@ -63,3 +63,55 @@
     font-weight: 100;
     font-style: normal;
 }
+
+@font-face {
+    font-family: 'Manrope';
+    src: local('Manrope'), local('Manrope-Bold'),
+        url('fonts/Manrope-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Manrope';
+    src: local('Manrope Medium'), local('Manrope-Medium'),
+        url('fonts/Manrope-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Orchidea Pro';
+    src: url('fonts/OrchideaPro-Regular.eot');
+    src: local('Orchidea Pro Regular'), local('OrchideaPro-Regular'),
+        url('fonts/OrchideaPro-Regular.eot?#iefix') format('embedded-opentype'),
+        url('fonts/OrchideaPro-Regular.woff2') format('woff2'),
+        url('fonts/OrchideaPro-Regular.woff') format('woff'),
+        url('fonts/OrchideaPro-Regular.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Orchidea Pro';
+    src: url('fonts/OrchideaPro-MediumItalic.eot');
+    src: local('Orchidea Pro Medium Italic'), local('OrchideaPro-MediumItalic'),
+        url('fonts/OrchideaPro-MediumItalic.eot?#iefix') format('embedded-opentype'),
+        url('fonts/OrchideaPro-MediumItalic.woff2') format('woff2'),
+        url('fonts/OrchideaPro-MediumItalic.woff') format('woff'),
+        url('fonts/OrchideaPro-MediumItalic.ttf') format('truetype');
+    font-weight: 500;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Orchidea Pro';
+    src: url('fonts/OrchideaPro-Medium.eot');
+    src: local('Orchidea Pro Medium'), local('OrchideaPro-Medium'),
+        url('fonts/OrchideaPro-Medium.eot?#iefix') format('embedded-opentype'),
+        url('fonts/OrchideaPro-Medium.woff2') format('woff2'),
+        url('fonts/OrchideaPro-Medium.woff') format('woff'),
+        url('fonts/OrchideaPro-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+}
