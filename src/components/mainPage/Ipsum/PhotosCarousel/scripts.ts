@@ -1,3 +1,4 @@
+import { PhotosType } from './static';
 interface IChangeSlidesProps {
     val: string,
     marginLeftOfSliderState: number,
@@ -16,7 +17,7 @@ export const changeSlides = <IChangeSlidesProps>(val, marginLeftOfSliderState, s
     }
 }
 
-export const popAndUnshiftActionWithArray = (arr: string[]) => {
+export const popAndUnshiftActionWithArray = (arr: PhotosType[]) => {
     // добавляем в начало и в конец по 3 элемента, чтобы при приближении к границам слайдера, не было пустых фотографий
     const lastItems = arr.slice(-3);
     const firstItems = arr.slice(0, 3);

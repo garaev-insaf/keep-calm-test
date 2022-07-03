@@ -4,6 +4,7 @@
     position: relative;
     .layout-wrapper::before {
         content: "";
+        z-index: 10;
         position: absolute;
         height: 550px;
         width: 380px;
@@ -11,6 +12,7 @@
         transform: matrix(-1, 0, 0, 1, 0, 0);
     }
     .layout-wrapper::after {
+        z-index: 10;
         content: "";
         position: absolute;
         right: 0;
@@ -24,10 +26,56 @@
         overflow: hidden;
         width: 9999px;
         height: 550px;
-        img:not(:last-child) {
-            margin-right: 40px;
+        display: flex;
+        .image-wrapper {
+            position: relative;
             width: 360px;
             height: 550px;
+            img {
+                width: 360px;
+                height: 550px;
+            }
+            .photo-description {
+                background: rgba(20, 20, 20, 0.5);
+                z-index: 2;
+                position: absolute;
+                overflow: hidden;
+                p {
+                    position: relative;
+                    z-index: 11;
+                    font-family: "Orchidea Pro";
+                    font-style: normal;
+                    font-weight: 500;
+                    font-size: 24px;
+                    color: #ffffff;
+                }
+            }
+            .photo-description.bottom {
+                bottom: 0;
+                width: 100%;
+                height: 145px;
+                display: flex;
+                align-items: center;
+                padding: 0 30px 0 30px;
+                p {
+                    text-align: left;
+                }
+            }
+            .photo-description.right {
+                top: 0;
+                right: 0;
+                width: 50%;
+                height: 100%;
+                display: flex;
+                align-items: flex-start;
+                padding: 42px 10px 0 30px;
+                p {
+                    text-align: center;
+                }
+            }
+        }
+        .image-wrapper:not(:last-child) {
+            margin-right: 40px;
         }
     }
     .buttons-wrapper {
