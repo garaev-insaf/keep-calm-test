@@ -10,7 +10,6 @@ const Modal = () => {
     let { modalContent, handleModal, modal } = React.useContext(ModalContext); // пользуемся деструктуризацией
 
     const handleModalClick = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
-        console.log(event.target);
         if (event.target == document.getElementById('mainModalWrap')) {
             handleModal();
         }

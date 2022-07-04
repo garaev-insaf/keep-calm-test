@@ -19,7 +19,6 @@ const PhotosCarousel = ({ imageWidth = 0, marginLeftOfSliderStateInitial = -3 })
     }
 
     useEffect(() => {
-        console.log(marginLeftOfSliderState);
         // Если мы достигли конечного слайда, обнуляем transition duration
         // делается это с той целью, чтобы пользователь не видел подмену фотографий
         if (marginLeftOfSliderState === -2 || marginLeftOfSliderState === -(imagesState.length - 3)) {
