@@ -9,8 +9,9 @@ const Modal = () => {
     const modalRoot = document.querySelector('#modal-root');
     let { modalContent, handleModal, modal } = React.useContext(ModalContext); // пользуемся деструктуризацией
 
-    const handleModalClick = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
-        if (event.target == document.getElementById('mainModalWrap')) {
+    const handleModalClick = (event: React.MouseEvent<HTMLElement, MouseEvent>) => {
+        console.log(event);
+        if (event.target === document.getElementById('mainModalWrap')) {
             handleModal();
         }
     }
@@ -21,7 +22,7 @@ const Modal = () => {
         return ReactDOM.createPortal(
             <div
                 className="main-modal" onClick={(e) => handleModalClick(e)}  id='mainModalWrap'>
-                <div className="modal-content">
+                <div className="modal-content" id="modalContent">
                     <button
                         className="exit-button"
                         onClick={() => handleModal()}

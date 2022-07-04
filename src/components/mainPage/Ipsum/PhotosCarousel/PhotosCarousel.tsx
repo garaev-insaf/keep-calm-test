@@ -53,7 +53,7 @@ const PhotosCarousel = ({ imageWidth = 0, marginLeftOfSliderStateInitial = -3 })
                             imagesState.length > 0 ?
                                 imagesState.map((photo, index) =>
                                     photo.src.length > 0 ?
-                                        <div className="image-wrapper" onClick={() => handleModal(<PhotosCarousel imageWidth={window.innerWidth > 1300 ? 1300 : window.innerWidth} currentImage={'/images/ipsum/first-photo.png'} marginLeftOfSliderStateInitial={marginLeftOfSliderState} />)} key={index}>
+                                        <div className="image-wrapper"  onClick={imageWidth === 0 ? () => handleModal(<PhotosCarousel imageWidth={window.innerWidth > 1300 ? 1300 : window.innerWidth} currentImage={'/images/ipsum/first-photo.png'} marginLeftOfSliderStateInitial={marginLeftOfSliderState} />) : null} key={index}>
                                             <img src={photo.src} alt="photo" />
                                             {
                                                 photo.descr.length > 0 && photo.descriptionPos >= 1 && photo.descriptionPos <= 4 ?
