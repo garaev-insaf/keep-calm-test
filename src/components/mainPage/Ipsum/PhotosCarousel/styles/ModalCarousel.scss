@@ -1,0 +1,162 @@
+@mixin modal-content-width {
+    max-width: 50%;
+    width: 100%;
+    @media (max-width: 992px) {
+        max-width: 90%;
+    }
+}
+
+@mixin modal-photo-params {
+    width: 1300px;
+    height: 80vh;
+    @media (max-width: 1300px) {
+        width: 100vw;
+        height: 90vh;
+    }
+    @media (max-width: 576px) {
+        width: 100vw;
+    }
+}
+
+.main-modal {
+    background: #141414;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+    @media (max-width: 1300px) {
+        align-items: flex-end;
+    }
+    .modal-content {
+        display: flex;
+        @include modal-photo-params;
+        height: auto !important;
+        overflow: hidden;
+        button.exit-button {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+        }
+        .photos-carousel {
+            margin: 0;
+            width: 100%;
+            position: relative;
+            .layout-wrapper {
+                width: 100%;
+            }
+            .layout-wrapper::before {
+                content: "";
+                display: none;
+            }
+            .layout-wrapper::after {
+                content: "";
+                display: none;
+            }
+            .photos-carousel-wrapper {
+                z-index: 1;
+                height: 100%;
+                .image-wrapper {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: flex-start;
+                    @include modal-photo-params;
+                    img {
+                        @include modal-photo-params;
+                        height: 70vh;
+                        @media (max-width: 1300px) {
+                            height: 70vh;
+                        }
+                    }
+                    .photo-description {
+                        position: relative;
+                        display: flex;
+                        align-items: flex-start;
+                        margin-top: 25px;
+                        padding: 0;
+                        width: 100%;
+                        height: 10vh;
+                        background: none;
+                        z-index: 1111;
+                        overflow-y: auto;
+                        @media (max-width: 1300px) {
+                            margin: 0;
+                            padding: 25px 20px;
+                            height: 20vh;
+                            .shadow {
+                                position: absolute;
+                                width: 100%;
+                                height: 100%;
+                                z-index: 1113;
+                                background: linear-gradient(180deg, rgba(20, 20, 20, 0) 0%, #141414 76.62%);
+                            }
+                        }
+                        p {
+                            z-index: 1112;
+                            position: relative;
+                            font-family: "Manrope";
+                            font-style: normal;
+                            font-weight: 500;
+                            font-size: 18px;
+                            color: #ffffff;
+                            @media (max-width: 1300px) {
+                                font-size: 14px;
+                            }
+                        }
+                    }
+                }
+                .image-wrapper:not(:last-child) {
+                    margin: 0;
+                }
+            }
+            .buttons-wrapper {
+                margin: 0;
+                position: absolute;
+                width: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: flex-end;
+                bottom: 10vh;
+                top: auto;
+                @media (max-width: 1300px) {
+                    bottom: 20vh;
+                }
+                @media (max-width: 576px) {
+                    padding-right: 20px;
+                }
+                button {
+                    position: relative;
+                    cursor: pointer;
+                    border: none;
+                    outline: none;
+                    background: transparent;
+                    width: auto;
+                    height: auto;
+                    padding: 23px 32px;
+                    background: #141414;
+                    @media (max-width: 576px) {
+                        padding: 10px 15px;
+                    }
+                    img {
+                        width: 13px;
+                        fill: #ffffff;
+                    }
+                }
+                button.button_prew-slide {
+                    margin: 0;
+                    left: 0;
+                }
+                button.button_next-slide {
+                    right: 0;
+                }
+            }
+        }
+    }
+}

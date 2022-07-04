@@ -4,11 +4,12 @@ import { changeSlides, popAndUnshiftActionWithArray } from "./scripts";
 import { TRANSITION_DURATION_TIME, MARGIN_LEFT_STEP, photosList, PhotosType, MARGIN_LEFT_STEP_MOBILE } from './static';
 import { ModalContext } from '../../../modal/ModalContext/ModalContext';
 import './styles/PhotosCarousel.scss'
+import './styles/ModalCarousel.scss'
 
-const PhotosCarousel = () => {
+const PhotosCarousel = ({ imageWidth = 0, marginLeftOfSliderStateInitial = -3 }) => {
     const { handleModal } = useContext(ModalContext)
     // Задача реализовать бесконечный слайдер, не зависящий от кол-ва слайдов (если мы добавим или убавим их кол-во слайдер продолжит корректно работать) ♥
-    const [marginLeftOfSliderState, setMarginLeftOfSliderState] = useState(window.innerWidth > 1200 ? -3 : -3);
+    const [marginLeftOfSliderState, setMarginLeftOfSliderState] = useState(marginLeftOfSliderStateInitial);
     const [imagesState, setImagesState] = useState<PhotosType[]>(() => popAndUnshiftActionWithArray(photosList)); // берём стейт с добавленными по обе стороны слайдами
     const [sliderTransitionDurationTime, setSliderTransitionDurationTime] = useState(TRANSITION_DURATION_TIME);
     const [mobileSlideFlag, setMobileFlagState] = useState(() => true)
@@ -47,17 +48,17 @@ const PhotosCarousel = () => {
             <div className="photos-carousel" id="photos-carousel">
                 <div className="layout-wrapper">
                     <div
-                        style={{ marginLeft: `${(window.innerWidth > 576 ? marginLeftOfSliderState *  MARGIN_LEFT_STEP + (window.innerWidth - MARGIN_LEFT_STEP) / 2 + 10 : marginLeftOfSliderState *  MARGIN_LEFT_STEP_MOBILE + (window.innerWidth - MARGIN_LEFT_STEP_MOBILE - 10) / 2)}px`, transitionDuration: `${sliderTransitionDurationTime}ms` }}
+                        style={{ marginLeft: `${(imageWidth !== 0 ? marginLeftOfSliderState * imageWidth : window.innerWidth > 576 ? marginLeftOfSliderState * MARGIN_LEFT_STEP + (window.innerWidth - MARGIN_LEFT_STEP) / 2 + 10 : marginLeftOfSliderState * MARGIN_LEFT_STEP_MOBILE + (window.innerWidth - MARGIN_LEFT_STEP_MOBILE - 10) / 2)}px`, transitionDuration: `${sliderTransitionDurationTime}ms` }}
                         className="photos-carousel-wrapper">
                         {
                             imagesState.length > 0 ?
                                 imagesState.map((photo, index) =>
                                     photo.src.length > 0 ?
-                                        <div className="image-wrapper" onClick={() => handleModal(<PhotosCarousel />)} key={index}>
-                                            <img src={photo.src} alt="photo"  />
+                                        <div className="image-wrapper" onClick={() => handleModal(<PhotosCarousel imageWidth={window.innerWidth > 1300 ? 1300 : window.innerWidth} currentImage={'/images/ipsum/first-photo.png'} marginLeftOfSliderStateInitial={marginLeftOfSliderState} />)} key={index}>
+                                            <img src={photo.src} alt="photo" />
                                             {
                                                 photo.descr.length > 0 && photo.descriptionPos >= 1 && photo.descriptionPos <= 4 ?
-                                                    <div className={`photo-description ${photo.descriptionPos === 1 ? 'top' : photo.descriptionPos === 2 ? 'right' : photo.descriptionPos === 3 ? 'bottom' : 'left'}`}><p>{photo.descr}</p></div>
+                                                    <div className={`photo-description ${photo.descriptionPos === 1 ? 'top' : photo.descriptionPos === 2 ? 'right' : photo.descriptionPos === 3 ? 'bottom' : 'left'}`}> <div className="shadow"></div> <p>{photo.descr}</p></div>
                                                     : null
                                             }
                                         </div>
@@ -70,8 +71,8 @@ const PhotosCarousel = () => {
                     </div>
                 </div>
                 <div className="buttons-wrapper">
-                    <button className="button_prew-slide button_photos-slide" onClick={() => handleSlideChangeClick('left')}><img src="/images/icons/left-arrow.svg" alt="left-arrow" /></button>
-                    <button className="button_next-slide button_photos-slide" onClick={() => handleSlideChangeClick('right')}><img src="/images/icons/right-arrow.svg" alt="right-arrow" /></button>
+                    <button className="button_prew-slide button_photos-slide" onClick={() => handleSlideChangeClick('left')}><img src={imageWidth !== 0 ? '/images/icons/left-arrow-white.svg' : ' /images/icons/left-arrow.svg'} alt="left-arrow" /></button>
+                    <button className="button_next-slide button_photos-slide" onClick={() => handleSlideChangeClick('right')}><img src={imageWidth !== 0 ? '/images/icons/right-arrow-white.svg' : ' /images/icons/right-arrow.svg'} alt="right-arrow" /></button>
                 </div>
             </div>
         </>

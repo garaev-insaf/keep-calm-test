@@ -24,3 +24,4 @@ export const popAndUnshiftActionWithArray = (arr: PhotosType[]) => {
     const result = lastItems.concat(arr, firstItems);
     return result;
 }
+

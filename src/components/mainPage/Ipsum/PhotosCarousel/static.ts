@@ -15,7 +15,7 @@ export const photosList:PhotosType[] = [
     },
     {
         src: '/images/ipsum/first-photo.png',
-        descr: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+        descr: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit Lorem ipsum dolor sit amet, consectetur adipiscing elit Lorem ipsum dolor sit amet, consectetur adipiscing elit Lorem ipsum dolor sit amet, consectetur adipiscing elit Lorem ipsum dolor sit amet, consectetur adipiscing elit',
         descriptionPos: 3,
     },
     {
